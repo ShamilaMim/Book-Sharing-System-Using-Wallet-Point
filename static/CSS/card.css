@@ -1,0 +1,299 @@
+/* card Desing for home page */
+.card{
+    width: 80%;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction:column ;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background-color:aliceblue;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(108, 115, 121);
+    font-size: 1rem;
+
+}
+.card h2{
+    text-align: right;
+    margin:15px 20px 0 10px;
+    
+}
+.cardImage{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+
+}
+.cardImage img{
+    margin-top: 10px;
+    width: 100px ;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px dotted black;
+  
+
+}
+.cardtit h2{
+    margin-top: 5px;
+    text-align: center;
+    color: lightsalmon;
+    text-transform: capitalize;
+
+}
+.price{
+    width: 100%;
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+}
+.price .orginalPrize{
+     flex-grow: 1;
+     color: lightseagreen;
+     text-align: left;
+    
+}
+.price .wallet{
+    flex-grow: 1;
+    color: lightseagreen;
+    text-align: right;
+}
+.price span{
+    margin: 15px;
+    font-size: 1.2rem;
+}
+.price .tk{
+    color: mediumvioletred;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border:none;
+}
+.price .location{
+    color: mediumvioletred;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border:none;
+}
+.price .pin-place{
+    margin-left: 20px;
+    font-size: 2rem;
+    color: dimgray;
+}
+.time{
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.carddetels{
+    flex-grow: 1;
+    justify-content: center;
+    color:black;
+    height: 50px;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+.carddetels p{
+    margin: 20px;
+}
+.btn {
+    margin: 0 auto;
+
+}
+.btn button{
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: royalblue;
+    border: none;
+    opacity:0.7 ;
+}
+.btn button a{
+    text-decoration: none;
+    color:white;
+}
+.btn button:hover, .btn button a:hover{
+    opacity: 1;
+
+}
+.btn1{
+    margin:0 auto;
+    margin-top: -8px;
+    margin:10px;
+    display:flex;
+    justify-content: center;
+    padding: 8px;
+}
+.btn1 a{
+    text-decoration: none;
+    width:100px;
+    height:40px;
+    background-color: royalblue;
+    color:white;
+    padding:10px;
+    opacity: 0.7;
+    text-align: center;
+    border-radius: 8px;
+}
+.btn1 a:hover{
+    opacity:1;
+}
+
+/* Deatils Profile css*/
+.cardProfile{
+    width: 100%;
+    height: auto;
+    border-top-left-radius:10px ;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+.cardProfile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    flex-grow: 1;
+}
+.name{
+    width: 200px;
+    height: auto;
+    text-align: left;
+    margin-top: 20px;
+    flex-grow: 2;
+    font-size: 1.5rem;
+}
+.cardProfile .icon{
+    width: 40%;
+    flex-grow: 9;
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+.postCard{
+    width: 40%;
+    height:550px;
+    display: flex;
+    background-color:aliceblue;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(220, 226, 231);
+
+}
+.postCarddetels{
+    flex-grow: 1;
+    justify-content: center;
+    color:black;
+    height: auto;
+    margin-top: -38px;
+
+}
+.postCarddetels p{
+    margin: 20px;
+    text-align: justify;
+    font-size: 18px;
+}
+ .postCard form .info{
+    width:150px;
+    height:80px;
+    margin:10px;
+}
+form .info i, form .info span{
+    display: inline-block;
+    
+}
+.area{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.location{
+    text-transform: capitalize;
+    margin-top: 4px;
+}
+.time{
+    margin-top: 2px;
+    margin-left: 25px;;
+}
+
+.detailsPost{
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.deatilsSide{
+        /*width: 10%;*/
+        height: auto;
+        margin-left: 40px;
+        
+        
+    }
+    .side .detailsPrice{
+        width: 200%;
+        height: 100px;
+        background-color: lightcoral;
+        flex-grow: 1;
+        border-radius: 10px;
+        margin-top: 10px;
+     
+    }
+    .side .walletPrice{
+        width: 200%;
+        height: 100px;
+        background-color: lightseagreen;
+        margin-top: 10px;
+        flex-grow: 1;
+        border-radius: 10px;
+    }
+  
+.side .detailsPrice span, .side .walletPrice span {
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-block;
+   margin: 20px 10px 4px 40px;
+    padding: 10x;
+    color: aliceblue;
+}
+.side .detailsPrice .mPrice, .side .walletPrice .wPrice{
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 45px ;
+    padding: 5px;
+    font-weight: 700;
+    color: aliceblue;
+}
+
+.deatilsCardImage{
+    width: 100%;
+    display: flex;
+
+}
+
+.deatilsCardImage img{
+    width: 170px ;
+    height: 200px;
+    margin: 10px auto;
+   
+
+}
+
