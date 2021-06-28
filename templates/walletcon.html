@@ -1,0 +1,217 @@
+{% extends 'profilebase.html' %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .popup .overlay {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            display: none;
+        }
+
+        .popup .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: #fff;
+            width: 95%;
+            max-width: 500px;
+            height: 550px;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .popup .close-btn {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: #222;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .popup.active .overlay {
+            display: block;
+        }
+
+        .popup.active .content {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #222;
+            color: #222;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: #fff;
+        }
+        #ign{
+            width: 100px;
+            height: 100px;
+            color:white;
+            background-color: royalblue;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+        #sub{
+            width: 100px;
+            height: 100px;
+            color:white;
+            background-color: lightseagreen;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+{% endblock %}
+{% block content %}
+{% for user in rows1 %}
+{% set process,wallet,p,c,a = process,user["wallet"],"pending","Cancel", "Accepted"%}
+
+<!-------------------------------------------------profile cover photo------------------>
+<div class="popup" id="popup-1">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="close-btn" onclick="togglePopup()">×</div>
+        <form action="" method="POST">
+            <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                    style="display: none;"></p>
+            <p>Upload Image: <label for="file" style="cursor: pointer;"><i
+                        class="far fa-file-image image"></i></label></p>
+            <p><img id="output" width="200" /></p>
+            <input type="text" placeholder="Enter your Tokon">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!--------------------------------continer---------------------->
+<div class="continer">
+    <div class="sideDive">
+
+    </div>
+    <div class="workspace">
+        <div class="main">
+            <div class="box leftSide">
+                <h1>Category</h1>
+                <ul>
+                    <li> <span class="material-icons">
+                            book
+                        </span>
+                        <a href="/wallet">Table</a></li>
+                    <li> <span class="material-icons">
+                            book
+                        </span>
+                        <a href="/booksubmite">Input Token</a></li>
+
+                </ul>
+
+            </div>
+            <div class="walletcal">
+                <h1>Wallet History</h1>
+                <div class="cardWallet">
+                    <div class="token box1">
+                        <span>Total Wallet</span>
+                        <br>
+                        <span>{{ wallet }} ৳</span>
+                    </div>
+                    <div class="token box2">
+                        <span>Last Cost</span>
+                        <br>
+                        <span>{{ reqWallet }} ৳</span>
+                    </div>
+                    <div class="token box3">
+                        <span>Pending Wallet</span>
+                        <br>
+                        {% if process == c %}
+                        <span>0৳</span>
+                        {% else %}
+                        <span> {{ reqWallet }} ৳</span>
+
+                        {% endif %}
+                    </div>
+
+                    <div class="priHistoruy">
+                        <h1>Incoming Wallet</h1>
+                        <table>
+                            <tr class="history">
+                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Owner</th>
+                                <th>Image</th>
+                                <th>Wallet</th>
+                                <th>Process</th>
+                                <th>Active</th>
+                            </tr>
+                            {% for i in rows2 %}
+                            {% set imageName = i["image"]|string()  %}
+                            {% set image = "image/"+imageName %}
+                            {% set owner,wallet,ID,process,reqID,wait,waitvalue= i["pusername"],i["reqWallet"],i["requserId"],i["process"],i["reqId"],i["Waitprocess"],i["WaittingValue"] %}
+                                {% if process == "Accepted" %}
+                                <tr>
+                                    <td>{{ i["requserName"] }}</td>
+                                    <td>{{ i["title"] }}</td>
+                                    <td>{{ owner }}</td>
+                                    <td><img src="{{ url_for('static', filename=image) }}" width="50px" height="50px" style="border-radius: 50%; border: 2px solid royalblue;" alt=""></td>
+                                    <td>{{ wallet }}</td>
+                                    <td>{{ process }}</td>
+                                    {% if ID==session.id %}
+                                     {% if wait=="waitting" %}
+                                     <td><a href="#" id="ign">Waitting</a></td>
+                                     {% elif waitvalue==0 %}
+                                     <td><a  href="{{ url_for('confirm', id=reqID) }}" id="ign">Confirm</a></td>
+                                     {% else %}
+                                     <td><a  href="{{ url_for('history', id=reqID) }}" id="ign">History</a></td>
+                                     {% endif %}
+                                        
+                                      
+                                    {% else %}
+                                       {% if wait=="waitting" %}
+                                       <td><a  href="{{ url_for('submite', id=reqID) }}" id="sub">Submite</a></td>
+                                        {% elif wait=="ok" %}
+                                        <td><a  href="{{ url_for('history', id=reqID) }}" id="ign">History</a></td>
+                                        {% else %}
+                                        <td><a  href="{{ url_for('history', id=reqID) }}" id="ign">History</a></td>
+                                        {% endif %}
+                                     {% endif %}
+    
+                                </tr>
+
+                                {% endif %}
+
+                            {% endfor %}
+                        </table>
+                    
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'adminnav.html' %}
+
+{% block content %}
+{% include "sidebar.html" %}
+<div class="dashmain">
+    <div class="addcontainer">
+        <form action="" method="POST">
+
+            <table id="ctable">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Icon</th>
+                    <th>Action</th>
+                </tr>
+                {% for item in rows %}
+                {% set id=item["id"] %}
+                <tr>
+                    <td>{{ item["id"] }}</td>
+                    <td>{{ item["name"] }}</td>
+                    <td>{{ item["icon"] }}</td>
+                    <td ><a id="remove" href="{{ url_for('delete', id=id) }}"> Remove</a></td>
+                </tr>
+
+                {% endfor %}
+                
+            </table>
+        </form>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

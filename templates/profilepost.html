@@ -1,0 +1,84 @@
+{% extends 'profilebase.html' %}
+{% block content %}
+
+<div class="prodiv">
+    {% for post in rows %}
+    {% set imageName = post["userimage"] | string()  %}
+    {% set image = "profile/"+imageName %}
+    <div class="cover">
+        <img src="{{ url_for('static', filename='profile/coverbook.jpeg') }}" alt="">
+    </div>
+    <div class="profilepic">
+        <img src="{{ url_for('static', filename=image) }}" alt="">
+        <br>
+        <span>{{ post["name"] }}</span>
+    </div>
+    {% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="box post ownner">
+    <div class="writepostcont">
+        <div class="writepost"> 
+            <a href="/createpost"><span class="material-icons write">
+                border_color
+                </span></a>
+        </div>
+        <h3>Write Post</h3>
+
+    </div>
+    
+    
+
+    {% for post in rows1 %}
+    {% set imageName = post["image"] | string()  %}
+    {% set image = "image/"+imageName %}
+    {% set id,userid,puserId =post["id"],id,post["userId"] %}
+
+        {% if  puserId == userid %}
+        <div class="card">
+            <div class="cardImage">
+
+                <img src="{{ url_for('static', filename=image) }}" alt="">
+
+            </div>
+            <div class="cardtit">
+                <h2>{{ post["title"] }}</h2>
+
+            </div>
+            <div class="price">
+                <div class="orginalPrize">
+                    <span>Bazar Price</span>
+                    <br>
+                    <span class="tk">{{ post["orginalprize"] }} ৳</span>
+                </div>
+                <div class="wallet">
+                    <span>Wallet Price</span>
+                    <br>
+                    <span class="tk"> {{ post["wallet"] }} ৳</span>
+                </div>
+            </div>
+
+            <div class="carddetels">
+                <p> {{ post["post"] }} </p>
+
+            </div>
+            <br>
+            <div class="btn">
+                <button type="button"><a href="{{ url_for('post', id=id) }}"> Read</a></button>
+            </div>
+        </div>
+
+        {% endif %}
+   
+    
+    {% endfor %}
+
+
+</div>
+</div>
+ {% endblock %}

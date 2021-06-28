@@ -1,0 +1,102 @@
+<!-----------------Navigation Bar -------------->
+{% extends 'base.html' %}
+
+<!--------------------------------Post Divsion---------->
+{% block content %}
+{% for post in rows %}
+    {% set imageName = post["image"] | string()  %}
+    {% set image,wallet = "image/"+imageName, post["wallet"] %}
+    {% set postId,userid = post["id"],post["userId"] %}
+    {% set userwallet,loginId=userWallet,loginId %}
+    {{ userwallet }}
+
+<div class="detailsPost">
+
+  
+    <div class="postCard">
+        <form action="" method="POST">
+        <input type="hidden" name="postid" value="{{ postId }}">
+        <input type="hidden" name="userid" value="{{ userid }}">
+        <div class="cardProfile">
+            <img src="{{ url_for('static', filename='profile/profile.jpeg') }}" alt="">
+            <span class="name">{{ post["pusername"] }}</span>
+            <span class="material-icons icon">more_vert</span>
+        </div>
+
+        <div class="deatilsCardImage">
+            <img src="{{ url_for('static', filename=image) }}" alt="">
+
+        </div>
+        <div class="cardtit">
+            <h2>{{ post["title"] }}</h2>
+
+        </div>
+        <div class="price">
+            <div class="orginalPrize">
+                <span class="material-icons pin-place">
+                    place
+                </span>
+                <span class="location">{{ post["area"] }}</span>
+                <br>
+            </div>
+            <div class="time">
+                <span>9 HOURS AGO</span>
+            </div>
+        </div>
+
+        <div class="postCarddetels">
+            <p>{{ post["post"] }} </p>
+
+        </div>
+        <input type="hidden" name="wallet" value="{{ wallet }}">
+        {% if session.login %}
+
+              {% if wallet > userwallet or loginId == userid  %}
+              {{ userid }}
+              {{ loginId }}
+                    <div class="btn">
+                        <a href="#" onclick="popup( {{ userid }} , {{ loginId }})">Request1</a>
+                    </div>
+                {% else %}
+                    <div class="btn">
+                        <button type="submit" name="submit">Request</button>
+                    </div>
+                {% endif %}
+        
+            
+        {% else %}
+            <div class="btn">
+                <a href="/profile" >Request</a>
+            </div>
+        
+        {% endif %}
+    </form>
+    </div>
+  
+
+    <!-----------Seconde card-------->
+    <!--------------------------------------------------------------------->
+    <!--------------------Side bar for catagory and Place----------->
+    <div class="deatilsSide">
+        <div class="side">
+            <img src="{{ url_for('static', filename='image/image2.jpeg') }}" alt="">
+            <input type="text" placeholder="Search Book">
+            <div class="detailsPrice">
+                <span>Market Price</span>
+                <br>
+                <span class="mPrice">{{ post["orginalprize"] }} ৳</span>
+
+            </div>
+            <div class="walletPrice">
+                <span>Wallet</span>
+                <br>
+                <span class="wPrice" >{{ post["wallet"] }} ৳</span>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>LogIn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='CSS/reg.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Mixins-->
+<!-- Pen Title-->
+
+<div class="rerun"><a href="/homepage">Return Home</a></div>
+<div class="container">
+  <div class="card"></div>
+  <div class="card">
+    <h1 class="title">Login</h1>
+    <h1>{{ msg }}</h1>
+    <form method="POST">
+      <div class="input-container">
+        <input type="#{type}" id="#{label}" name="username" required="required"/>
+        <label for="#{label}">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="#{label}" name="userpassword" required="required"/>
+        <label for="#{label}">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button type="submit"><span>Login</span></button>
+      </div>
+      <div class="footer"><a href="#">Forgot your password?</a></div>
+    </form>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

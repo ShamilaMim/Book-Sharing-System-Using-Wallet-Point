@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="cont">
+    <div class="rsidebar">
+        <ul>
+            <li><a href="#">Poem</a></li>
+            <li><a href="#">Novle</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Story<a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Travelling</a></li>
+            <li><a href="#">Islamic-studies</a></li>
+            <li><a href="#">Programming</a></li>
+            <li><a href="#">Engineering</a></li>
+            <li><a href="#">Politics</a></li>
+
+            
+        </ul>
+    </div>
+    <div class="review">
+        {% for review in rows %}
+       {% set postImage = review["image"] | string()  %}
+       {% set pimage = "image/"+postImage %}
+       {% set id = review["reviewId"] %}
+       <div class="rcard">
+        <img src="{{ url_for('static', filename=pimage) }}" alt="">
+        <h2>Book Name: {{ review["bookName"] }}</h2>
+        <h3>Author Name: {{ review["writer"] }}</h3>
+        <p>Ratting: {{ review["ratting"]}}/5</p>
+        <div class="rbtn">
+            <a href="{{ url_for('reviewpage', id=id) }}">Read More</a>
+        </div>
+       </div>
+       {% endfor %}
+
+       
+    </div>
+    
+</div>
+
+{% endblock %}
+
+    

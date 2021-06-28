@@ -1,0 +1,48 @@
+{% extends 'profilebase.html' %}
+{% block content %}
+{% for user in rows %}
+{% set imageName = user["userimage"] | string()  %}
+{% set image,wallet,userName,email= "profile/"+imageName, user["wallet"],user["name"],user["email"] %}
+{% set id = user["id"] %}
+
+<!-------------------------------------------------profile cover photo------------------>
+<div class="profilecontainer">
+
+    <div class="imagecont">
+
+        <div class="coverdiv">
+            <img src="{{ url_for('static', filename='profile/coverbook.jpeg') }}" alt="">
+        </div>
+
+        <div class="profileimg">
+            <img src="{{ url_for('static', filename=image) }}" alt="">
+        
+           <form action="" method="POST" enctype="multipart/form-data">
+            <label for="file" style="cursor: pointer;" onclick="save()" id="imageicon"> <i class="material-icons pen"  >mode_edit</i></label>
+                <button type="submit" id="save">save</button>
+                <input type="file" accept="image/*" name="file" id="file" style="display: none;">
+           </form>
+            <br>
+        </div>
+
+    </div>
+    
+    <div class="imageinfo">
+        <div class="information">
+            <span id="name">Name: <span>{{ userName }}</span></span>
+            <span id="email">Email:<span>{{ email }} </span></span>
+            <span>Wallet:  {{ wallet }}</span>
+            <span>Mobile: <span> {{ user["mobile"] }}</span></span>
+            <span id="lives">Lives In: <span> {{ user["lives"] }}</span></span>
+            <a href="/logout">Logout</a>
+        
+        </div>
+
+    </div>
+    
+    
+</div>
+{% endfor %}
+
+ {% endblock %}
+

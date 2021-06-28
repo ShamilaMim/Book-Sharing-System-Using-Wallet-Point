@@ -1,0 +1,61 @@
+{% extends 'adminnav.html' %}
+
+{% block content %}
+{% include "sidebar.html" %}
+<div class="dashmaintable">
+    <ul>
+        <li><a href="/adminpage">post</a></li>
+        <li><a href="/reviewtable">review</a></li>
+    </ul>
+    <h1>User Remove</h1>
+    
+    <div class="addcontainer addC1">
+        <ul>
+            <li><a href="/adminpage">post</a></li>
+            <li><a href="/approve">approve</a></li>
+        </ul>
+        <form action="" method="POST">
+
+            <table class="posttable">
+                <tr id="tableheader">
+                    <th>POst ID</th>
+                    <th>Image</th>
+                    <th>Post Name</th>
+                    <th>Post</th>
+                    <th>User</th>
+                    <th>Image</th>
+                    <th>Prize</th>
+                    <th>Wallet</th>
+                    <th>Area</th>
+                    <th>Time</th>
+                </tr>
+                {% for post in rows %}
+                {% set imageName = post["image"] | string()  %}
+                {% set image = "image/"+imageName %}
+                {% set userimage = post["userimage"] | string()  %}
+                {% set userImage = "profile/"+userimage %}
+                {% set id = post["id"] %}
+                <tr class="tabledata">
+                    <td>{{ post["id"] }}</td>
+                    <td><img src="{{ url_for('static', filename=image) }}" width="50px" height="70px" style="border: 2px dotted black;" alt=""></td>
+                    <td>{{ post["title"] }}</td>
+                    <td>{{ post["post"] }}</td>
+                    <td>{{ post["username"] }}</td>
+                    <td><img src="{{ url_for('static', filename=userImage) }}" width="50px" height="50px" style="border-radius: 50%; border: 2px solid royalblue;" alt=""></td>
+                    <td>{{ post["orginalprize"] }}</td>
+                    <td>{{ post["wallet"] }}</td>
+                    <td>{{ post["area"] }}</td>
+                    <td>{{ post["time"] }}</td>
+                </tr>
+
+                {% endfor %}
+                
+            </table>
+        </form>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

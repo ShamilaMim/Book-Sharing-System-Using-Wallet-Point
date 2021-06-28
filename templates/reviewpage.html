@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="reviewcont">
+    <div class="cont1">
+        {% for review in rows %}
+        {% set postImage = review["image"] | string() %}
+        {% set pimage = "image/"+postImage %}
+        <div class="rsidebar1">
+            <img src="{{ url_for('static', filename=pimage) }}" alt="">
+            <h3>Writer: {{ review["writer"] }}</h3>
+            <p>Ratting: {{ review["ratting"]}}/5</p>
+        </div>
+        <div class="review1">
+            <div class="rcard1">
+                <h2> {{ review["bookName"] }}</h2>
+                <h3> by {{ review["writer"] }}</h3>
+                <p>{{ review["review"] }}</p>
+            </div>
+            {% endfor %}
+    
+    
+        </div>
+    
+    </div>
+
+</div>
+
+
+{% endblock %}

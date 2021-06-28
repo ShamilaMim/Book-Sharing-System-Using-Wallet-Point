@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/adminsidebar.css') }}">
+
+</head>
+
+<body>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href="/admin">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Dashboard
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a href="#">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Site Setting
+                    </span>
+                </a>
+                <div class="site-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="addCategory" href="/addcategory"><i class="material-icons fa-2x f1">post_add</i> Add Category</a>
+                    <a class="deletCategory" href="/categorytable"><span class="material-icons fa-ex f1">delete_outline</span> Remove Category</a>
+                   
+                </div>
+
+            </li>
+            <li class="user">
+                <a href="">
+                    <span class="material-icons fa-2x f">
+                        person
+                    </span>
+                    <span class="nav-text">
+                        User
+                    </span>
+                </a>
+                <div class="site-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="addCategory" href="/alluser"><i class="material-icons fa-2x f1">post_add</i> All User</a>
+                    <a class="deletCategory" href="/userremove"><span class="material-icons fa-ex f1">delete_outline</span> Remove User</a>  
+                </div>
+
+            </li>
+            <li class="has-subnav">
+                <a href="/bookhistory">
+                    <i class="fa fa-folder-open fa-2x"></i>
+                    <span class="nav-text">
+                        History
+                    </span>
+                    <div class="site-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="addCategory" href="/addcourier"><i class="material-icons fa-2x f1">post_add</i> Add courier</a>
+                    <a class="deletCategory" href="/courier"><span class="material-icons fa-ex f1">delete_outline</span> Courier</a>
+                   
+                </div>
+                </a>
+
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-font fa-2x"></i>
+                    <span class="nav-text">
+                        Blog
+                    </span>
+                </a>
+            </li>
+           
+            <li>
+                <a href="#">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span class="nav-text">
+                        Maps
+                    </span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#">
+
+                    <i class="material-icons fa-2x f">
+                        settings
+                    </i>
+                    <span class="nav-text">
+                        Setting
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="#">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+        {% block content %} {% endblock %}
+    </nav>
+</body>
+
+</html>

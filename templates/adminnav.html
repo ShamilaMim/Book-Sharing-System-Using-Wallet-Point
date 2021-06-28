@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='CSS/adminnav.css') }}">
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='CSS/admin.css') }}">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h1>Book<span>Bee</span></h1>
+        </div>
+        <ul>
+            <li><span class="material-icons">
+                notifications
+                </span>
+            </li>
+            <li>
+                <span class="material-icons">
+                    account_circle
+                    </span>
+
+            </li>
+        </ul>
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

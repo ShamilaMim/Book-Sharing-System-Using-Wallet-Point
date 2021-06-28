@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/home.css') }}">
+    <script src="https://kit.fontawesome.com/7065020f84.js" crossorigin="anonymous"></script>
+    <title>Homepage</title>
+
+</head>
+
+<body>
+    <section>
+        <div class="navbar" id="navbar">
+            <h1>Book<span>Bee</span></h1>
+            <a href="/login">Login</a>
+            <a href="/reg">Registration</a>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="dropcontent">
+                    <a href="/home">Home</a>
+                    <a href="/review">Review</a>
+                    <a href="about">About</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="homecontainer">
+
+
+            <div class="homeheadingcontainer">
+                <h1>Book Sharing System</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <button>About</button>
+
+
+            </div>
+
+            <div class="homebicontainer"></div>
+
+        </div>
+
+    </section>
+
+    <section class="cardsection">
+
+        <!------------------ bookcategory ----------------------->
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="{{url_for('static', filename='image/bookcate.jpg')}}" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Book Category</h1>
+                    <p>usdfheifjerfeoricgmwerog</p>
+                    <p>ergecetnetynetnentn</p>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------- bookreview ------------------------------>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="{{url_for('static', filename='image/review.jpg')}}" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back bookReview">
+                    <h1>Book Review</h1>
+                    <p>vdfkldkfslfdsdcvcvdfvfdvdv</p>
+                    <p>loremloremloremloremloremlor</p>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------ wallet--------------------------- -->
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="{{url_for('static', filename='image/wallet.jpg')}}" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back wallet">
+                    <h1>Wallet</h1>
+                    <p>djgsdsgjdfkdfhdrgdr</p>
+                    <p>ddksefuscrioeomxferogmeog</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="homecontainer1">
+
+        <div class="homebicontainer1">
+
+        </div>
+
+        <div class="homeheadingcontainer1">
+            <h1>Book Readers Community</h1>
+            <p>A community is a social unit (a group of living things) with commonality such as norms, religion, values,
+                customs, or identity. Communities may share a sense of place situated in a given geographical area (e.g.
+                a country, village, town, or neighbourhood) or in virtual space through communication platforms.</p>
+            <p>This system is developed with a purpose of helping users to share books.It is practice of sharing books
+                between one person and another. While physical book clubs are reading groups still exist, online
+                communities for book lovers make it easy for readers to share the books they are reading and their
+                thoughts about them with a much wider audience. </p>
+            <button>Get Started</button>
+        </div>
+
+    </section>
+
+    <!------------------------------Section2-------------------------------->
+
+    <section class="homecontainer2">
+
+        <div class="homeheadingcontainer2">
+            <h1>About</h1>
+            <p>This website help connect book owners who are interested in trading their used books with other book
+                owners' used books. It's a win-win because everyone gets to enjoy a new book without needing to spend
+                the extra cash making more space at home to store old books. Getting The book in a completely virtual
+                way without any real transaction. And at the same time the habit of sharing books will develop among
+                them.</p>
+            <button>Get Started</button>
+        </div>
+
+
+        <div class="homebicontainer2">
+
+        </div>
+    </section>
+
+    <!--------------------------------Contact--------------------------------->
+
+    <section class="contact">
+
+        <form action="" method="post">
+            <h1>Contact Us</h1>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="First Name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Last Name..">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="E-mail">
+
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="USA">USA</option>
+            </select>
+
+            <label for="subject">Subject</label>
+            <textarea name="subject" id="subject" placeholder="Write Something"></textarea>
+            <input type="submit" value="Submit">
+
+        </form>
+
+    </section>
+
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("navbar").style.background = "#CCE5FF";
+            } else {
+                document.getElementById("navbar").style.background = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

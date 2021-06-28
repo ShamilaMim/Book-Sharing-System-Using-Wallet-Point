@@ -1,0 +1,40 @@
+{% extends 'adminnav.html' %}
+
+{% block content %}
+{% include "sidebar.html" %}
+<div class="dashmain">
+
+    <div class="addcontainer">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Owner</th>
+                    <th>Process</th>
+                    <th>Wallet</th>
+                    <th>Book</th>
+                </tr>
+                {% for req in rows %}
+                {% set imageName = req["image"] | string()  %}
+                {% set image = "image/"+imageName %}
+                <tr>
+                    <td>{{ req["requserName"] }}</td>
+                    <td>{{ req["title"] }}</td>
+                    <td>{{ req["pusername"] }}</td>
+                    <td>{{ req["process"] }}</td>
+                    <td>{{ req["reqWallet"] }}</td>
+                    <td><img src="{{ url_for('static', filename=image) }}" width="50px" height="50px" style="border-radius: 50%; border: 2px solid royalblue;" alt=""></td>
+                </tr>
+
+                {% endfor %}
+                
+            </table>
+
+        </div>
+
+
+
+</div>
+
+
+{% endblock %}

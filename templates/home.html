@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div id="overlay" onclick="off()"></div>
+<!-------Category and Post Div ------------>
+<div class="main">
+    <div class="box leftSide">
+        <h1>Category</h1>
+        <ul>
+            {% for i in rows %}
+            {% set id=i["id"] %}
+            <li> <span class="material-icons"> book </span> <a href="{{ url_for('categoryBook', id=id) }}">{{i["name"]}}</a> </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <!--------------------------------------------------------------------->
+
+    <!--------------------------------Post Divsion---------->
+    <div class="box post">
+
+        {% for post in rows2 %}
+        {% set imageName = post["image"] | string()  %}
+        {% set image = "image/"+imageName %}
+        {% set id =post["id"] %}
+            
+            <div class="card">
+                {% if  post["status"] == 0 %}
+
+                <h2>Out-of</h2>
+                {% endif %}
+                <div class="cardImage">
+    
+                    <img src="{{ url_for('static', filename=image) }}" alt="">
+    
+                </div>
+                <div class="cardtit">
+                    <h2>{{ post["title"] }}</h2>
+    
+                </div>
+                <div class="price">
+                    <div class="orginalPrize">
+                        <span>Market Price</span>
+                        <br>
+                        <span class="tk">{{ post["orginalprize"] }} ৳</span>
+                    </div>
+                    <div class="wallet">
+                        <span>Wallet Price</span>
+                        <br>
+                        <span class="tk"> {{ post["wallet"] }} ৳</span>
+                    </div>
+                </div>
+    
+                <div class="carddetels">
+                    <p> {{ post["post"] }} </p>
+    
+                </div>
+                <br>
+
+                <div class="btn">
+                    <button type="button"><a href="{{ url_for('post', id=id) }}">Show More</a></button>
+                </div>
+               
+            </div>
+
+       
+        
+        {% endfor %}
+
+
+    </div>
+    <!--------------------------------------------------------------------->
+    <!--------------------Side bar for catagory and Place----------->
+    <div class="box rightSide">
+        <div class="side" >
+            <img src="{{ url_for('static', filename='image/image1.jpeg') }}" alt="">
+            <input type="text" id="search" placeholder="Search Book">
+            <div class="place">
+                <span>Place</span>
+
+            </div>
+            
+        </div>
+
+
+
+
+
+        <!--------------notification-------------->
+        <div class="notification" style="display: none;">
+            <span class="material-icons" onclick="hide()">close</span>
+            <form action="" method="POST">
+    
+                    {% for item in noti %}
+                    {% set id=item["userId"]| string()  %}  
+                    {% set rid=item["requserId"]| string()  %}                
+                    {% set bstatus=item["bookstatus"]| string()  %}
+                    {% set reqid=item["reqId"] %}
+                    {% set a,b,c="1","2","0" %}
+                    {% set ID = ID %}
+    
+                        {% if ID in id  %}
+                           
+                            {% if bstatus in a %}
+                        
+                                <div class="note">
+                                    <p> {{ item["requserName"] }} Request for your book {{ item["title"] }}. What you want?</p>
+                                    <div class="notebtn">
+                                        <a href="{{ url_for('accept', id=reqid) }}" id="acpt">Accept</a>
+                                        <a href="{{ url_for('ignore', id=reqid) }}" id="ign">Ignore</a>
+                                    </div>  
+                
+                                </div>
+    
+                            {% elif bstatus in b %}
+    
+                                <div class="note1">
+                                    <p> Successfully move wallet.</p>
+                                </div>
+    
+                            {% else %}   
+    
+                                <div class="note1">
+                                    <p> Shamila Accept your request book. Successful move wallet.</p>
+                                </div>
+    
+                            {% endif %}
+        
+    
+                    
+                        {% elif rid in ID %}
+                            
+                            {% if bstatus in b %}
+    
+                                <div class="note1">
+                                    <p>  {{ item["username"] }} Accept your request book {{ item["title"] }}. Successful move wallet</p>
+                                </div>
+    
+                            {% elif bstatus in c  %}   
+    
+                            <div class="note1">
+                                <p> {{ item["username"] }} Ignore your request book {{ item["title"] }}. Soon Back to your wallet.</p>
+                            </div>
+                            
+    
+                            {% endif %}
+    
+    
+            
+    
+                        {% endif %}
+        
+    
+                    {% endfor %}
+    
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

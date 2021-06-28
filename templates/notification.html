@@ -1,0 +1,77 @@
+{% extends 'profilebase.html' %}
+
+{% block content %}
+
+    <div class="notification">
+        <form action="" method="POST">
+
+                {% for item in rows %}
+                {% set id=item["userId"]| string()  %}  
+                {% set rid=item["requserId"]| string()  %}                
+                {% set bstatus=item["bookstatus"]| string()  %}
+                {% set reqid=item["reqId"] %}
+                {% set a,b,c="1","2","0" %}
+                {% set ID=ID %}
+
+                    {% if ID in id %}
+                       
+                        {% if bstatus in a %}
+                    
+                            <div class="note">
+                                <p> {{ item["requserName"] }} Request for your book {{ item["title"] }}. What you want?</p>
+                                <div class="notebtn">
+                                    <a href="{{ url_for('accept', id=reqid) }}" id="acpt">Accept</a>
+                                    <a href="{{ url_for('ignore', id=reqid) }}" id="ign">Ignore</a>
+                                </div>  
+            
+                            </div>
+
+                        {% elif bstatus in b %}
+
+                            <div class="note1">
+                                <p> Successfully move wallet.</p>
+                            </div>
+
+                        {% else %}   
+
+                            <div class="note1">
+                                <p> Shamila Accept your request book. Successful move wallet.</p>
+                            </div>
+
+                        {% endif %}
+    
+
+                
+                    {% elif rid in ID %}
+                        
+                        {% if bstatus in b %}
+
+                            <div class="note1">
+                                <p>  {{ item["username"] }} Accept your request book {{ item["title"] }}. Successful move wallet</p>
+                            </div>
+
+                        {% elif bstatus in c  %}   
+
+                        <div class="note1">
+                            <p> {{ item["username"] }} Ignore your request book {{ item["title"] }}. Soon Back to your wallet.</p>
+                        </div>
+                        
+
+                        {% endif %}
+
+
+        
+
+                    {% endif %}
+    
+
+                {% endfor %}
+
+        </form>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

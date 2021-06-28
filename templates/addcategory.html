@@ -1,0 +1,23 @@
+{% extends 'adminnav.html' %}
+
+{% block content %}
+{% include "sidebar.html" %}
+<div class="dashmain">
+
+    <div class="addcontainer">
+        <div class="addcont">
+            <form action="" method="POST">
+                <input type="text" name="icon" id="icon" placeholder="Add Icon">
+                <input class="category" name="addcategory" id="addcategory" cols="20" rows="8" required placeholder="Add Category">
+                <button type="submit" id="add">Add</button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

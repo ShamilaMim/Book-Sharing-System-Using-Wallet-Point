@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="{{url_for('static', filename='js/post.js')}}"></script>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/card.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/post.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/profile.css') }}">
+
+        <title>{% block title %}{% endblock %} - Profile</title>
+    {% endblock %}
+
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <ul>
+            <li>
+                <a href="/wallet"> <span class="material-icons pIcon">payments</span>
+                    <br>
+                    <span id="wIcon">Wallet</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profilepost"> <span class="material-icons pIcon postIcon">add_comment</span>
+                    <br>
+                    <span class="po" id="post">Post</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/addreview" class="r">  <span class="material-icons pIcon">post_add</span>
+                    <br>
+                    <span id="review">Review</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile"> <span class="material-icons pIcon">account_circle</span>
+                    <br>
+                    <span class="p">profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="/home"> <span class="material-icons pIcon" id="homeicon">home</span>
+                    <br>
+                    <span class="h">Home</span>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    {% block content %} {% endblock %}
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/post.js') }}"></script>
+    {% endblock scripts %}
+
+</body>
+
+
+</html>

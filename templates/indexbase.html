@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/card.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav class="header">
+
+        <div class="navItem">
+            <h1>Book<span>Bee</span></h1>
+            {% if session.login %}
+                <ul> 
+                    <button onclick="on()">click</button>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/home">Book</a></li>
+                    <li><a href="/review">Review</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                </ul>
+            {% else %}
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Book</a></li>
+                    <li><a href="/review">Review</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/reg">Registration</a></li>
+                </ul>
+            {% endif %}
+
+        </div>
+
+
+    </nav>
+    {% block content %} {% endblock %}
+
+</body>
+
+</html>

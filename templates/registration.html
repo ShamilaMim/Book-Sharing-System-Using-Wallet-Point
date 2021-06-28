@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+    <style>
+
+        .main{
+            height:800px;
+        }
+        .box2{
+            width:30%;
+            padding:20px;
+            box-sizing:border-box;
+            height:85%;
+            float:left;
+            position: absolute;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px black;
+            font-size: 1rem;
+        }
+        .box2 input{
+            height: 20px;
+            border: none;
+        }
+        #checkbox{
+            height: 15px;
+        }
+        .box1 h1{
+            margin:auto;
+            position: absolute;
+            left:45%;
+            right:50%;
+            top:50%;
+            bottom:50%;
+            color:blue;
+            
+        }
+        h1{
+            color:rgb(236, 122, 122);
+            margin-top: -20px;
+        }
+        h3{
+            color:#8F5ACF;
+            
+        }
+    
+        button{
+            
+            border-radius: 8px;
+            background-color:limegreen;
+            color:white;
+            width:100px;
+            height:30px;
+            box-shadow: 2px 2px grey;
+            transition: 0.5s linear;
+            margin-top: 12px;
+            
+        }
+        button:hover{
+            background-color: forestgreen;
+            color:white;
+            
+        }
+        .part1{
+            display:flex;
+            justify-content: space-around;
+        }
+        .part2{
+            display: flex;
+            flex-direction: column;
+            margin:10px;
+        }
+        .name{
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+       <div class="box2">
+         <br>
+           <form action="" method="POST">
+               <h1>Registration</h1>
+               {{ meg }}
+               <div class="part1">
+                   <div class="part2">
+                    <h3>Name</h3>
+                    <input type="text" placeholder="Name_" name="first_name" required>
+                   </div>
+
+                   <div class="part2">
+                    <h3>UserName</h3>
+                    <input type="text" name="username" placeholder="username" required>
+                   </div>
+               </div>
+
+               <div class="part1">
+                   <div class="part2"> 
+                    <h3>Password</h3>
+                    <input type="password" placeholder="********" name="password" required>
+                   </div>
+
+                   <div class="part2">
+                    <h3>Confirm Password</h3>
+                    <input type="password" placeholder="********" required>
+                   </div>
+        
+               </div>
+           
+           <h3>Email</h3>
+           <input class="name" type="email" placeholder="Email_" name="email" required>
+           <h3>Mobile</h3>
+           <input class="name" type="text" placeholder="Mobile No" name="mobile" max="11" min="5" required>
+           <h3>Location</h3>
+           <input class="name" type="text" placeholder="location" name="location" required>
+           <br>
+           <br>
+           <input id ="checkbox" type="checkbox" required>
+           <label>Agree with Terms & Conditions</label>
+           <br>
+           <br>
+           <button type="submit">Sign Up</button>
+
+           </form>
+
+       </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+
+{% extends 'profilebase.html' %}
+{% block content %}
+    {% for user in rows1 %}
+        {% set process,wallet,p,c,a = process,user["wallet"],"pending","Cancel", "Accepted"%}
+
+
+        <!-------------------------------------------------profile cover photo------------------>
+        <div class="continer">
+            <div class="sideDive">
+                
+            </div>
+            <div class="workspace">
+                <div class="main">
+                    <div class="box leftSide">
+                        <h1>Category</h1>
+                        <ul>
+                        <li> <span class="material-icons">
+                            book
+                            </span>
+                        <a href="/wallet">Table</a></li>
+                        <li> <span class="material-icons">
+                            book
+                            </span>
+                        <a href="/booksubmite">Input Tokon</a></li>
+            
+                        </ul>
+            
+                    </div>
+                    <div class="walletcal">
+                        <h1>Wallet History</h1>
+                        <div class="cardWallet">
+                            <div class="token box1">
+                                <span>Total Wallet</span>
+                                <br>
+                                <span>{{ wallet }}  ৳</span>
+                            </div>
+                            <div class="token box2">
+                                <span>Last Cost</span>
+                                <br>
+                                <span>{{ reqWallet }} ৳</span>
+                            </div>
+                            <div class="token box3">
+                                <span>Pending Wallet</span>
+                                <br>
+                                {% if process == c %}
+                                    <span>0৳</span>
+                                {% else %}
+                                    <span> {{ reqWallet }}  ৳</span>
+                                     
+                                {% endif %}
+                            </div>
+                        
+            
+                    </div>
+
+                        <div class="priHistoruy">
+                            <h1>Incoming Wallet</h1>
+                            <table>
+                                <tr class="history">
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Book</th>
+                                <th>Wallet</th>
+                                <th>Status</th>
+                                <th>Active</th>
+                                </tr>
+                                <tr>
+                                <td>January</td>
+                                <td>12</td>
+                                <td>Sharmin</td>
+                                <td>Sapiens</td>
+                                <td>170 ৳</td>
+                                <td>Incoming</td>
+                                <td>Pending</td>
+                                </tr>
+                                <tr>
+                                    <td>January</td>
+                                <td>12</td>
+                                <td>Shamila</td>
+                                <td>GOT</td>
+                                <td>270 ৳</td>
+                                <td>Outgoing</td>
+                                <td>Delivery</td>
+                                </tr>
+                            </table>
+                        
+                        </div>
+                        <div class="priHistoruy">
+                            <h1>Outgoing Wallet</h1>
+                            <table>
+                                <tr class="history">
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Book</th>
+                                <th>Wallet</th>
+                                <th>Status</th>
+                                <th>Active</th>
+                                </tr>
+                                <tr>
+                                <td>January</td>
+                                <td>12</td>
+                                <td>Sharmin</td>
+                                <td>Sapiens</td>
+                                <td>170 ৳</td>
+                                <td>Incoming</td>
+                                <td>Pending</td>
+                                </tr>
+                                <tr>
+                                    <td>January</td>
+                                <td>12</td>
+                                <td>Shamila</td>
+                                <td>GOT</td>
+                                <td>270 ৳</td>
+                                <td>Outgoing</td>
+                                <td>Delivery</td>
+                                </tr>
+                            </table>
+                        
+                        </div>
+                        
+                    </div>
+            </div>
+
+        </div>
+
+    {% endfor %}
+{% endblock %}
