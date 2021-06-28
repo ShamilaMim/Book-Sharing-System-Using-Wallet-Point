@@ -3,3 +3,4 @@
 # setup
 # 1 pip install flask
 # 2 pip insatall flask-wtf
+# 3 pip install sql
